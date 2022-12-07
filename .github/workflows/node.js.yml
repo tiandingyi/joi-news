@@ -1,24 +1,21 @@
 name: Node.js CI
 
-on:
-  push:
-    branches: [ "master" ]
-  paths:  
-    - 'web/**'
+  on:
+    push:
+      branches: ["master"]
+      paths:
+        - "web/**"
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
-
 
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16.5.1'
+          node-version: "16.5.1"
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
