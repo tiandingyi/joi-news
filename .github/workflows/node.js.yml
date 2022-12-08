@@ -59,6 +59,10 @@ jobs:
       - name: Print Public IP
         run: |
           echo --- ${{ steps.ip.outputs.ipv4 }} ---
+      - name: pwd
+        run: |
+          pwd
+          ls
       - uses: LuisEnMarroquin/setup-ssh-action@v2.0.0
         with:
           ORIGIN: ${{ secrets.WEB1_HOST }} # example.com || 8.8.8.8
