@@ -24,6 +24,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       -
+        name: check 
+        run: |
+        ls 
+        pwd
+
+      -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       -
