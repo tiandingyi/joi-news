@@ -66,7 +66,7 @@ jobs:
       - uses: LuisEnMarroquin/setup-ssh-action@v2.0.0
         with:
           ORIGIN: ${{ secrets.WEB1_HOST }} # example.com || 8.8.8.8
-          SSHKEY: ${{ secrets.WEB1_KEY }} # ----- BEGIN RSA PRIVATE KEY----- ...
+          SSHKEY: /Users/dingyi.tian/Desktop/sre-learning-by-doing/slbd-infra/config/web1
           NAME: production
           PORT: 22
           USER: ubuntu
