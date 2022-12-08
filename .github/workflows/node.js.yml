@@ -19,7 +19,7 @@ jobs:
 #       run: npm i
 #     - name: test
 #       run: npm run test
-  docker:
+  build-image-push:
     # needs: test
     runs-on: ubuntu-latest
     steps:
@@ -44,6 +44,21 @@ jobs:
         run: |
           docker build -t dingyi2000/web .
           docker push dingyi2000/web
+
+
+  deploy:
+    needs: test
+    runs-on: joi-news
+    steps:
+      - run: ls
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ubuntu
+          key: ${{ secrets.KEY }}
+          port: 22
+          script: whoami
 
 
 
