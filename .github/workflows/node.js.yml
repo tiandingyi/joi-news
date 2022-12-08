@@ -52,14 +52,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: ls
-      - name: executing remote ssh commands using ssh key
-        uses: appleboy/ssh-action@master
+      - uses: LuisEnMarroquin/setup-ssh-action@v2.0.0
         with:
-          host: ${{ secrets.WEB1_HOST }}
-          username: ubuntu
-          key: ${{ secrets.WEB1_KEY }}
-          port: 22
-          script: whoami
+          SSHKEY: ${{ secrets.WEB1_KEY }}
+    - run: ssh -T ubuntu@${{ secrets.WEB1_HOST }} 
+      # - name: executing remote ssh commands using ssh key
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: ${{ secrets.WEB1_HOST }}
+      #     username: ubuntu
+      #     key: ${{ secrets.WEB1_KEY }}
+      #     port: 22
+      #     script: whoami
 
 
 
