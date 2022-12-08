@@ -48,7 +48,7 @@ jobs:
 
   deploy:
     needs: build-image-push
-    runs-on: joi-news
+    runs-on: self-hosted
     steps:
       - run: ls
       - name: executing remote ssh commands using ssh key
