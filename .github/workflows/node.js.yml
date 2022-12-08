@@ -64,14 +64,15 @@ jobs:
           pwd
           ls
           cat /Users/dingyi.tian/Desktop/sre-learning-by-doing/slbd-infra/config/web1
-      - uses: LuisEnMarroquin/setup-ssh-action@v2.0.0
-        with:
-          ORIGIN: ${{ secrets.WEB1_HOST }} # example.com || 8.8.8.8
-          SSHKEY: /Users/dingyi.tian/Desktop/sre-learning-by-doing/slbd-infra/config/web1
-          NAME: production
-          PORT: 22
-          USER: ubuntu
-      - run: ssh production ls --help
+          ssh -i /Users/dingyi.tian/Desktop/sre-learning-by-doing/slbd-infra/config/web1 ubuntu@${{ secrets.WEB1_HOST }}
+      # - uses: LuisEnMarroquin/setup-ssh-action@v2.0.0
+      #   with:
+      #     ORIGIN: ${{ secrets.WEB1_HOST }} # example.com || 8.8.8.8
+      #     SSHKEY: /Users/dingyi.tian/Desktop/sre-learning-by-doing/slbd-infra/config/web1
+      #     NAME: production
+      #     PORT: 22
+      #     USER: ubuntu
+      # - run: ssh production ls --help
 
 
 
