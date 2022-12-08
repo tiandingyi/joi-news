@@ -26,8 +26,8 @@ jobs:
       -
         name: check 
         run: |
-        ls 
-        pwd
+          ls 
+          pwd
 
       -
         name: Set up QEMU
