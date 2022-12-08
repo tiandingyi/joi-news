@@ -47,7 +47,7 @@ jobs:
 
 
   deploy:
-    needs: test
+    needs: build-image-push
     runs-on: joi-news
     steps:
       - run: ls
