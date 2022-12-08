@@ -50,6 +50,7 @@ jobs:
     needs: build-image-push
     runs-on: self-hosted
     steps:
+      - uses: actions/checkout@v2
       - run: ls
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
