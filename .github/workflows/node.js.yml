@@ -4,9 +4,9 @@ on:
     branches: ["master"]
     paths:
       - "web/**"
-# defaults:
-#   run:
-#     working-directory: web
+defaults:
+  run:
+    working-directory: web
 jobs:
 #   test:
 #     runs-on: ubuntu-latest
