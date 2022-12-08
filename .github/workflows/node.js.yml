@@ -55,7 +55,7 @@ jobs:
       - uses: LuisEnMarroquin/setup-ssh-action@v2.0.0
         with:
           SSHKEY: ${{ secrets.WEB1_KEY }}
-    - run: ssh -T ubuntu@${{ secrets.WEB1_HOST }} 
+      - run: ssh -T ubuntu@${{ secrets.WEB1_HOST }} 
       # - name: executing remote ssh commands using ssh key
       #   uses: appleboy/ssh-action@master
       #   with:
