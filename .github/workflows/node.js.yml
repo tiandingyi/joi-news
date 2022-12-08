@@ -41,10 +41,9 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          push: true
-          tags: dingyi2000/app:latest
+        run: |
+          docker build -t dingyi2000/web .
+          docker push dingyi2000/web
 
 
 
