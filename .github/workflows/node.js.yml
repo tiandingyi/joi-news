@@ -7,7 +7,7 @@ on:
 # defaults:
 #   run:
 #     working-directory: web
-# jobs:
+jobs:
 #   test:
 #     runs-on: ubuntu-latest
 #     steps:
