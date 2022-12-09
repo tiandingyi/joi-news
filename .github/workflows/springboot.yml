@@ -20,17 +20,21 @@ jobs:
       run: chmod +x gradlew
     - name: Test
       run: ./gradlew test --tests "*"
-    - name: Build
-      run: |
-        ./gradlew build
-        ls ./build/libs
-        cp ./build/libs/joi-news-1.0-SNAPSHOT.jar ./
+
 
   build-image-push:
     needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Grant Permissions to gradlew
+        run: chmod +x gradlew
+      - name: Test
+        run: ./gradlew test --tests "*"
+      - name: Build
+        run: |
+          ./gradlew build
+          cp ./build/libs/joi-news-1.0-SNAPSHOT.jar ./
       -
         name: check 
         run: pwd
