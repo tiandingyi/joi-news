@@ -20,6 +20,11 @@ jobs:
       run: chmod +x gradlew
     - name: Test
       run: ./gradlew test --tests "*"
+    - name: Build
+      run: |
+        ./gradlew build
+        ls ./build
+        cp ./build/joi-news-1.0-SNAPSHOT.jar ./
 
   build-image-push:
     needs: test
