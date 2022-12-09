@@ -23,8 +23,8 @@ jobs:
     - name: Build
       run: |
         ./gradlew build
-        ls ./build/liba/joi-news-1.0-SNAPSHOT.jar
-        cp ./build/liba/joi-news-1.0-SNAPSHOT.jar ./
+        ls ./build/libs
+        cp ./build/libs/joi-news-1.0-SNAPSHOT.jar ./
 
   build-image-push:
     needs: test
