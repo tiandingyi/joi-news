@@ -58,7 +58,7 @@ jobs:
         run: |
           ssh -i /Users/dingyi.tian/Desktop/sre-learning-by-doing/slbd-infra/config/web1 ubuntu@${{ secrets.WEB1_HOST }} "docker stop web;docker rm web;docker run -d --name=web -p 3000:3000 -e REACT_APP_API_BASE_URL:=http://localhost:8092 dingyi2000/web"
 
-      - name: ssh to web1 to run web
+      - name: ssh to web2 to run web
         run: |
           ssh -i /Users/dingyi.tian/Desktop/sre-learning-by-doing/slbd-infra/config/web2 ubuntu@${{ secrets.WEB2_HOST }} "docker stop web;docker rm web;docker run -d --name=web -p 3000:3000 -e REACT_APP_API_BASE_URL:=http://localhost:8092 dingyi2000/web"
 
