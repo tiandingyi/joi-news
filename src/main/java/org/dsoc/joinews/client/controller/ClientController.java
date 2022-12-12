@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ClientController {
 
   private final ClientRepository clientRepository;
-// test1
+// test2
   @GetMapping("/summary")
   public ClientSummary getClientSummary() {
     return new ClientSummary(clientRepository.count());
