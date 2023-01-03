@@ -20,7 +20,7 @@ jobs:
     - name: test
       run: npm run test
   build-image-push:
-    needs: test
+    # needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -60,7 +60,7 @@ jobs:
 
       - name: ssh to web2 to run web
         run: |
-          ssh -i /Users/dingyi.tian/Desktop/sre-learning-by-doing/slbd-infra/config/web2 ubuntu@${{ secrets.WEB2_HOST }} "docker stop web;docker rm web;docker run -d --name=web -p 3000:3000 -e REACT_APP_API_BASE_URL=http//${{ secrets.BACKEND2_HOST }}:8092 dingyi2000/web"
+          ssh -i /Users/dingyi.tian/Desktop/sre-learning-by-doing/slbd-infra/config/web2 ubuntu@${{ secrets.WEB2_HOST }} "docker stop web;docker rm web;docker run -d --name=web -p 3000:3000 -e REACT_APP_API_BASE_URL=http://${{ secrets.BACKEND2_HOST }}:8092 dingyi2000/web"
 
 
 

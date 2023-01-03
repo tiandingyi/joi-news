@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  backend:
+    image: backend
+    container_name: backend
+    ports:
+      - "8092:8092"
+    # env_file: settings.dev.env
+    environment:
+      DB_URL: "jdbc:postgresql://postgres:5432/local?currentSchema=joinews"
+    depends_on:
+      - databases
+
+
+  frontend:
+    image: frontend
+    ports:
+      - "3000:3000"
+    # env_file: settings.dev.env
+    environment:
+      REACT_APP_API_BASE_URL: "http://localhost:8092"
+    depends_on:
+      - backend
+
+
+
+  databases:
+    image: postgres:14.1-alpine
+    container_name: postgres
+    ports:
+      - '5435:5432'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=p@ssw0rd
+      - POSTGRES_DB=local
